@@ -1,0 +1,21 @@
+<!--generic blueprint -->
+<!DOCTYPE html>
+<html lang="en" id="page">
+<head>
+  <meta charset="UTF-8"/>
+  <title>{% block title %}Task Home{% endblock %}</title>
+  <!-- Loads the path to your static files -->
+  {% load staticfiles %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!--include a block of code -->
+  {% block body %}
+  {% endblock %}
+  <script src="{% static 'task/post.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<table id="taskListTable" class="table table-striped">
+  <thead>
+    <tr>
+      <th class="col-sm-3">Date</th>
+      <th class="col-sm-7">Task</th>
+      <th class="col-sm-2">Done</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in all_tasks %}
+    <tr>
+      <td>{{ task.date.date }}</td>
+      <td>
+        <a href="#" data-toggle="modal" data-target="#taskdetail-{{task.id}}">{{ task.task_title }}</a>
+        <div class="modal fade" id="taskdetail-{{task.id}}" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">{{task.task_title}}</h4>
+              </div>
+              <div class="modal-body">
+                <p><pre>{{task.description}}</pre></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <form id="{{task.id}}" method="POST">
+        {% csrf_token %}
+        <input name="taskid" value="{{task.id}}" hidden/>
+        {% if task.is_solved %}
+          <input name="taskcheck" class="checked" type="checkbox" checked/>
+        {% else %}
+          <input name="taskcheck" class="checked" type="checkbox" />
+        {% endif %}
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

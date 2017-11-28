@@ -1,0 +1,16 @@
+{% extends 'task/base.html' %}
+
+{% block body %}
+<div class="container container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 class="text-center">Task list</h3>
+      {% include 'task/tasklist.html' %}
+    </div>
+    <div class="col-sm-6">
+      <h3 class="text-center">Create a task</h3>
+      {% include 'task/newtaskform.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}
